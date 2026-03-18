@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARBEZ Ingeniería S.A.S. | Industria 4.0 y 5.0</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0a0f16', 
+                        cardbg: '#0f172a', /* Un azul pizarra muy oscuro, más elegante que el gris genérico */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'], /* Fuente para párrafos */
+                        heading: ['Montserrat', 'sans-serif'], /* Fuente para títulos */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos estrictos para el cambio de idioma */
+        .lang-en { display: none !important; }
+        .lang-es { display: block !important; }
+        body.english .lang-es { display: none !important; }
+        body.english .lang-en { display: block !important; }
+        
+        span.lang-es, a.lang-es { display: inline !important; }
+        span.lang-en, a.lang-en { display: none !important; }
+        body.english span.lang-es, body.english a.lang-es { display: none !important; }
+        body.english span.lang-en, body.english a.lang-en { display: inline !important; }
+
+        /* Efecto de cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #38bdf8; /* Color cyan */
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+            vertical-align: text-bottom;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-300 font-sans selection:bg-cyan-500 selection:text-white">
+
+    <nav class="bg-darkbg/90 backdrop-blur-md text-white p-4 fixed w-full z-50 top-0 border-b border-slate-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-heading font-bold tracking-wider text-white flex items-center">
+                <i class="fa-solid fa-microchip mr-2 text-cyan-400"></i>
+                ARBEZ <span class="font-medium text-sm ml-1 text-slate-400">INGENIERÍA</span>
+            </div>
+            <div class="flex items-center space-x-6 text-sm font-medium">
+                <a href="#nosotros" class="hover:text-cyan-400 transition hidden md:block"><span class="lang-es">Nosotros</span><span class="lang-en">About Us</span></a>
+                <a href="#servicios" class="hover:text-cyan-400 transition hidden md:block"><span class="lang-es">Servicios</span><span class="lang-en">Services</span></a>
+                <a href="#casos" class="hover:text-cyan-400 transition hidden md:block"><span class="lang-es">Casos de Éxito</span><span class="lang-en">Success Stories</span></a>
+                <a href="#aliados" class="hover:text-cyan-400 transition hidden md:block"><span class="lang-es">Alianzas</span><span class="lang-en">Partners</span></a>
+                <a href="#contacto" class="hover:text-cyan-400 transition hidden md:block"><span class="lang-es">Contacto</span><span class="lang-en">Contact</span></a>
+                <button id="langToggle" onclick="toggleLanguage()" class="border border-slate-600 text-slate-300 hover:border-cyan-400 hover:text-cyan-400 px-3 py-1 rounded transition">
+                    EN
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative bg-darkbg h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div id="particles-js"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl flex flex-col justify-center h-48 md:h-36 mt-10 md:mt-0">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-6 text-slate-100 tracking-tight leading-tight">
+                <span class="lang-es">ARBEZ es </span><span class="lang-en">ARBEZ is </span>
+                <span id="typewriter" class="text-cyan-400"></span><span class="cursor">&nbsp;</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-10 text-slate-400 font-light max-w-3xl mx-auto leading-relaxed">
+                <span class="lang-es">Integramos tecnologías avanzadas de automatización, analítica de datos y eficiencia energética para llevar su operación hacia la Industria 4.0 y 5.0.</span>
+                <span class="lang-en">We integrate advanced automation technologies, data analytics, and energy efficiency to lead your operation towards Industry 4.0 and 5.0.</span>
+            </p>
+            
+            <div>
+                <a href="#contacto" class="bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-white font-bold py-3 px-8 rounded-md text-lg transition shadow-[0_0_20px_rgba(56,189,248,0.3)] inline-block mt-4">
+                    <span class="lang-es">Contáctenos</span><span class="lang-en">Contact Us</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="nosotros" class="py-20 px-4 bg-cardbg border-t border-slate-800">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-darkbg p-8 rounded-2xl border border-slate-800 shadow-xl hover:border-cyan-500/40 transition duration-300">
+                    <h3 class="text-2xl font-heading font-bold mb-4 text-slate-100 text-center md:text-left">
+                        <i class="fa-solid fa-bullseye mr-2 text-cyan-400"></i><span class="lang-es">Misión</span><span class="lang-en">Mission</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 font-light leading-relaxed">En ARBEZ Ingeniería, impulsamos la transformación industrial mediante soluciones integrales de automatización, digitalización y analítica de datos. Combinamos expertise certificado multimarcas con un equipo multidisciplinario para optimizar procesos...</p>
+                    <p class="lang-en text-slate-400 font-light leading-relaxed">At ARBEZ Engineering, we drive industrial transformation through comprehensive automation, digitalization, and data analytics solutions. We combine certified multi-brand expertise with a multidisciplinary team to optimize processes...</p>
+                </div>
+                <div class="bg-darkbg p-8 rounded-2xl border border-slate-800 shadow-xl hover:border-cyan-500/40 transition duration-300">
+                    <h3 class="text-2xl font-heading font-bold mb-4 text-slate-100 text-center md:text-left">
+                        <i class="fa-regular fa-eye mr-2 text-cyan-400"></i><span class="lang-es">Visión</span><span class="lang-en">Vision</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 font-light leading-relaxed">Ser líderes en Latinoamérica en la implementación de soluciones Industria 4.0 y 5.0, reconocidos por integrar tecnologías avanzadas de automatización, optimización de procesos, eficiencia energética, infraestructuras OT/IT resilientes y analítica predictiva.</p>
+                    <p class="lang-en text-slate-400 font-light leading-relaxed">To be leaders in Latin America in the implementation of Industry 4.0 and 5.0 solutions, recognized for integrating advanced automation technologies, process optimization, energy efficiency, resilient OT/IT infrastructures, and predictive analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 px-4 bg-darkbg">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-slate-100">
+                <span class="lang-es">Nuestros Servicios</span><span class="lang-en">Our Services</span>
+                <div class="w-16 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-cardbg p-8 rounded-2xl border border-slate-800 hover:border-cyan-400 transition duration-300 group text-center">
+                    <div class="text-4xl text-cyan-400 mb-5 group-hover:-translate-y-2 transition duration-300">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold mb-3 text-slate-200 group-hover:text-cyan-400 transition">
+                        <span class="lang-es">Automatización Industrial</span><span class="lang-en">Industrial Automation</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 text-sm font-light leading-relaxed">Configuración de PLCs y desarrollo de HMI/SCADA para optimizar sus procesos productivos.</p>
+                    <p class="lang-en text-slate-400 text-sm font-light leading-relaxed">PLC configuration and HMI/SCADA development to optimize your productive processes.</p>
+                </div>
+                <div class="bg-cardbg p-8 rounded-2xl border border-slate-800 hover:border-cyan-400 transition duration-300 group text-center">
+                    <div class="text-4xl text-cyan-400 mb-5 group-hover:-translate-y-2 transition duration-300">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold mb-3 text-slate-200 group-hover:text-cyan-400 transition">
+                        <span class="lang-es">Analítica de Datos</span><span class="lang-en">Data Analytics</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 text-sm font-light leading-relaxed">Extracción y análisis de datos para la toma de decisiones estratégicas y la mejora continua.</p>
+                    <p class="lang-en text-slate-400 text-sm font-light leading-relaxed">Data extraction and analysis for strategic decision making and continuous improvement.</p>
+                </div>
+                <div class="bg-cardbg p-8 rounded-2xl border border-slate-800 hover:border-cyan-400 transition duration-300 group text-center">
+                    <div class="text-4xl text-cyan-400 mb-5 group-hover:-translate-y-2 transition duration-300">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold mb-3 text-slate-200 group-hover:text-cyan-400 transition">
+                        <span class="lang-es">Eficiencia Energética</span><span class="lang-en">Energy Efficiency</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 text-sm font-light leading-relaxed">Monitorización y gestión de consumos para identificar ahorros, reducir costos y fomentar la sostenibilidad.</p>
+                    <p class="lang-en text-slate-400 text-sm font-light leading-relaxed">Monitoring and management of consumption to identify savings, reduce costs, and promote sustainability.</p>
+                </div>
+                <div class="bg-cardbg p-8 rounded-2xl border border-slate-800 hover:border-cyan-400 transition duration-300 group text-center">
+                    <div class="text-4xl text-cyan-400 mb-5 group-hover:-translate-y-2 transition duration-300">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold mb-3 text-slate-200 group-hover:text-cyan-400 transition">
+                        <span class="lang-es">Comunicaciones Industriales</span><span class="lang-en">Industrial Comms</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 text-sm font-light leading-relaxed">Diseño de infraestructura de red y configuración de comunicaciones industriales seguras y eficientes.</p>
+                    <p class="lang-en text-slate-400 text-sm font-light leading-relaxed">Network infrastructure design and configuration of secure and efficient industrial communications.</p>
+                </div>
+                <div class="bg-cardbg p-8 rounded-2xl border border-slate-800 hover:border-cyan-400 transition duration-300 group text-center">
+                    <div class="text-4xl text-cyan-400 mb-5 group-hover:-translate-y-2 transition duration-300">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold mb-3 text-slate-200 group-hover:text-cyan-400 transition">
+                        <span class="lang-es">Soluciones Ind. 4.0/5.0</span><span class="lang-en">Industry 4.0/5.0</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 text-sm font-light leading-relaxed">Implementamos ecosistemas ciber-físicos, enfocados en la interconexión, IA y colaboración humano-máquina.</p>
+                    <p class="lang-en text-slate-400 text-sm font-light leading-relaxed">We implement cyber-physical ecosystems focused on interconnection, AI, and human-machine collaboration.</p>
+                </div>
+                <div class="bg-cardbg p-8 rounded-2xl border border-slate-800 hover:border-cyan-400 transition duration-300 group text-center">
+                    <div class="text-4xl text-cyan-400 mb-5 group-hover:-translate-y-2 transition duration-300">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold mb-3 text-slate-200 group-hover:text-cyan-400 transition">
+                        <span class="lang-es">Optimización Eléctrica</span><span class="lang-en">Electrical Optimization</span>
+                    </h3>
+                    <p class="lang-es text-slate-400 text-sm font-light leading-relaxed">Realizamos análisis de fallas operativas y coordinación de protecciones para garantizar disponibilidad.</p>
+                    <p class="lang-en text-slate-400 text-sm font-light leading-relaxed">We perform operational fault analysis and protection coordination to ensure maximum availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="casos" class="py-20 px-4 bg-cardbg border-t border-slate-800">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-slate-100">
+                <span class="lang-es">Casos de Éxito</span><span class="lang-en">Success Stories</span>
+                <div class="w-16 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-darkbg p-8 rounded-2xl border border-slate-800 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-5">
+                        <div class="bg-cyan-900/30 p-3 rounded-xl mr-4 flex-shrink-0 border border-cyan-500/20">
+                            <i class="fa-solid fa-industry text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-slate-200"><span class="lang-es">Digitalización de Planta</span><span class="lang-en">Plant Digitalization</span></h3>
+                    </div>
+                    <p class="lang-es text-slate-400 font-light leading-relaxed">Conectando el futuro de la producción. Integramos de forma segura redes OT/IT e implementamos PLCs en áreas críticas para centralizar y monitorear datos en tiempo real, agilizando la toma de decisiones.</p>
+                    <p class="lang-en text-slate-400 font-light leading-relaxed">Connecting the future of production. We securely integrated OT/IT networks and implemented PLCs in critical areas to centralize and monitor data in real-time, streamlining decision-making.</p>
+                </div>
+                <div class="bg-darkbg p-8 rounded-2xl border border-slate-800 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-5">
+                        <div class="bg-cyan-900/30 p-3 rounded-xl mr-4 flex-shrink-0 border border-cyan-500/20">
+                            <i class="fa-solid fa-clipboard-check text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-slate-200"><span class="lang-es">Verificación de Calidad</span><span class="lang-en">Quality Verification</span></h3>
+                    </div>
+                    <p class="lang-es text-slate-400 font-light leading-relaxed">¡Adiós a los errores de etiquetado! Desarrollamos un sistema automático que conecta sistemas de visión con PLCs y bases de datos para garantizar una concordancia perfecta y evitar el crosspacking.</p>
+                    <p class="lang-en text-slate-400 font-light leading-relaxed">Goodbye to labeling errors! We developed an automated system connecting machine vision with PLCs and databases to ensure perfect matching and prevent crosspacking.</p>
+                </div>
+                <div class="bg-darkbg p-8 rounded-2xl border border-slate-800 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-5">
+                        <div class="bg-cyan-900/30 p-3 rounded-xl mr-4 flex-shrink-0 border border-cyan-500/20">
+                            <i class="fa-solid fa-droplet text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-slate-200"><span class="lang-es">Gestión Inteligente de Utilities</span><span class="lang-en">Smart Utilities Management</span></h3>
+                    </div>
+                    <p class="lang-es text-slate-400 font-light leading-relaxed">Transformando el consumo en ahorros. Diseñamos la infraestructura para digitalizar el consumo de energía, vapor y agua, identificando focos de alto gasto para estrategias de eficiencia enfocadas.</p>
+                    <p class="lang-en text-slate-400 font-light leading-relaxed">Transforming consumption into savings. We designed the infrastructure to digitalize energy, steam, and water consumption, identifying high-expense hotspots for focused efficiency strategies.</p>
+                </div>
+                <div class="bg-darkbg p-8 rounded-2xl border border-slate-800 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-5">
+                        <div class="bg-cyan-900/30 p-3 rounded-xl mr-4 flex-shrink-0 border border-cyan-500/20">
+                            <i class="fa-solid fa-brain text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-bold text-slate-200"><span class="lang-es">Control Avanzado con IA</span><span class="lang-en">Advanced Control with AI</span></h3>
+                    </div>
+                    <p class="lang-es text-slate-400 font-light leading-relaxed">Anticipando el futuro. Entrenamos modelos predictivos de Machine Learning para comprender el comportamiento de los procesos y anticipar el consumo de gas natural y electricidad para máxima eficiencia.</p>
+                    <p class="lang-en text-slate-400 font-light leading-relaxed">Anticipating the future. We trained predictive Machine Learning models to understand process behavior and anticipate natural gas and electricity consumption for maximum efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aliados" class="py-16 px-4 bg-darkbg border-t border-slate-800">
+        <div class="container mx-auto text-center max-w-5xl">
+            <h2 class="text-sm font-bold text-slate-500 mb-10 uppercase tracking-widest">
+                <span class="lang-es">Nuestros Aliados Estratégicos</span><span class="lang-en">Our Strategic Partners</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-slate-300 font-medium">
+                <span class="bg-cardbg px-6 py-3 rounded-xl border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 transition cursor-default"><i class="fa-solid fa-handshake mr-2 text-cyan-500/70"></i>Rockwell Automation</span>
+                <span class="bg-cardbg px-6 py-3 rounded-xl border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 transition cursor-default"><i class="fa-solid fa-handshake mr-2 text-cyan-500/70"></i>Aveva</span>
+                <span class="bg-cardbg px-6 py-3 rounded-xl border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 transition cursor-default"><i class="fa-solid fa-handshake mr-2 text-cyan-500/70"></i>Siemens</span>
+                <span class="bg-cardbg px-6 py-3 rounded-xl border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 transition cursor-default"><i class="fa-solid fa-handshake mr-2 text-cyan-500/70"></i>Festo</span>
+                <span class="bg-cardbg px-6 py-3 rounded-xl border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 transition cursor-default"><i class="fa-solid fa-handshake mr-2 text-cyan-500/70"></i>Omron</span>
+                <span class="bg-cardbg px-6 py-3 rounded-xl border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 transition cursor-default"><i class="fa-solid fa-handshake mr-2 text-cyan-500/70"></i>Inductive Automation</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 px-4 bg-cardbg text-center border-t border-slate-800">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6 text-slate-100">
+                <span class="lang-es">Inicie su Transformación</span><span class="lang-en">Start Your Transformation</span>
+            </h2>
+            <p class="mb-10 text-slate-400 font-light leading-relaxed">
+                <span class="lang-es">Agenda una consultoría gratuita donde analizaremos tus procesos actuales e identificaremos oportunidades de mejora.</span>
+                <span class="lang-en">Schedule a free consultation where we will analyze your current processes and identify opportunities for improvement.</span>
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="mailto:ventas@arbez.co" class="bg-darkbg border border-slate-800 hover:border-cyan-500 p-6 rounded-2xl w-full md:w-auto transition group shadow-lg">
+                    <i class="fa-solid fa-envelope text-2xl text-cyan-400 mb-3 group-hover:scale-110 transition"></i>
+                    <span class="block text-slate-200 font-medium">ventas@arbez.co</span>
+                </a>
+                <div class="bg-darkbg border border-slate-800 hover:border-cyan-500 p-6 rounded-2xl w-full md:w-auto transition group shadow-lg">
+                    <i class="fa-solid fa-phone text-2xl text-cyan-400 mb-3 group-hover:scale-110 transition"></i>
+                    <span class="block text-slate-200 font-medium">+57 3195320874</span>
+                    <span class="block text-slate-200 font-medium">+57 3214810438</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-darkbg text-slate-500 text-center py-8 text-sm border-t border-slate-900">
+        <p>&copy; 2026 ARBEZ Ingeniería S.A.S. <span class="lang-es">Todos los derechos reservados.</span><span class="lang-en">All rights reserved.</span></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Configuración de partículas
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2, "random": false },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#38bdf8", "opacity": 0.15, "width": 1 },
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.4 } }, "push": { "particles_nb": 3 } }
+            },
+            "retina_detect": true
+        });
+
+        // LÓGICA DE TYPEWRITER Y CAMBIO DE IDIOMA UNIFICADA
+        const wordsES = ["Analítica de Datos", "Eficiencia Energética", "Automatización Industrial", "Digitalización", "Inteligencia Artificial"];
+        const wordsEN = ["Data Analytics", "Energy Efficiency", "Industrial Automation", "Digitalization", "Artificial Intelligence"];
+        
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const isEnglish = document.body.classList.contains('english');
+            const currentWordsArray = isEnglish ? wordsEN : wordsES;
+            
+            if (wordIndex >= currentWordsArray.length) wordIndex = 0;
+            
+            const currentWord = currentWordsArray[wordIndex];
+            const targetElement = document.getElementById("typewriter");
+
+            if (isDeleting) {
+                targetElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                targetElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = 100;
+            if (isDeleting) typeSpeed /= 2;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; 
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % currentWordsArray.length; 
+                typeSpeed = 500; 
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        function toggleLanguage() {
+            const body = document.body;
+            const btn = document.getElementById('langToggle');
+            body.classList.toggle('english');
+            
+            if (body.classList.contains('english')) {
+                btn.innerText = 'ES'; 
+            } else {
+                btn.innerText = 'EN'; 
+            }
+            
+            document.getElementById("typewriter").textContent = "";
+            charIndex = 0;
+            isDeleting = false;
+            wordIndex = 0;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
